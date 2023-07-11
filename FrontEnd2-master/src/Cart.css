@@ -1,0 +1,57 @@
+.produtos{
+    position: relative;
+    text-align: center;
+    pointer-events: none;
+    color :black;
+    padding-top: 50px;
+}
+
+button{
+    pointer-events:all;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+img{
+    height: 200px;
+    width: 200px;
+}
+
+/* Estilos CSS para o formulário de pagamento */
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+/* Estilos CSS para o formulário de pagamento */
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+  }
+  
+  .payment-form label {
+    margin-bottom: 0.5rem;
+    color:black
+  }
+  
+  .payment-form input {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .payment-form button {
+    margin-top: 1rem;
+  }
+  
+  .Remover {
+    display: block;
+    margin: 0 470px;
+  }
+  

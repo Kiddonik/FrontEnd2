@@ -5,20 +5,8 @@ import "./Dashboard.css";
 import { auth, db, logout } from "./firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart } from './Cartaction';
-import "./Cart.css"
 
-function Carrinho() {
-  const cartItems = useSelector((state) => state.cartItems);
-  const dispatch = useDispatch();
-
-  const handleRemoveFromCart = (productId) => {
-    dispatch(removeFromCart(productId));
-  };
-
-  // Calcular o valor total a ser pago
-  const totalAmount = cartItems.reduce((total, item) => total + item.price, 0);
+function Pagamento() {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
   const navigate = useNavigate();
@@ -80,23 +68,30 @@ function Carrinho() {
             </button>
           </div>
           <div>
-      <h1>Carrinho</h1>
-      <div className="payment-section">
-        <h1>Total a ser pago: ${totalAmount}</h1>
-        <Link to="/Pagamento">
-          <button className='Remover'>Ir para o Pagamento</button>
-        </Link>
-      </div>
-      <div className="produtos">
-        {cartItems.map((item) => (
-          <div key={item.id}>
-            <p>
-              {item.name} - ${item.price}
-            </p>
-            <button onClick={() => handleRemoveFromCart(item.id)} >Remover do Carrinho</button>
-          </div>
-        ))}
-      </div>
+      <h1>Pagamento</h1>
+      <form className='payment-form'>
+        <div>
+          <label htmlFor="name">Nome:</label>
+          <input type="text" id="name" />
+        </div>
+        <div>
+          <label htmlFor="cardNumber">Número do cartão:</label>
+          <input type="text" id="cardNumber" />
+        </div>
+        <div>
+          <label htmlFor="expiry">Data de expiração:</label>
+          <input type="text" id="expiry" />
+        </div>
+        <div>
+          <label htmlFor="cvv">CVV:</label>
+          <input type="text" id="cvv" />
+        </div>
+        <div>
+          <label htmlFor="zipcode">CEP:</label>
+          <input type="text" id="zipcode" />
+        </div>
+        <button type="submit">Realizar Pagamento</button>
+      </form>
     </div>
         </div>
       </div>
@@ -105,4 +100,4 @@ function Carrinho() {
 }
 
 
-export default Carrinho;
+export default Pagamento;

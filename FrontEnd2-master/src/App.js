@@ -11,7 +11,7 @@ import Cart from "./Cart";
 import { Provider } from "react-redux";
 import { createStore } from 'redux';
 import cartReducer from "./Cartreducer";
-
+import Pagamento from "./Pagamento";
 const store = createStore(cartReducer);
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
             <Route exact path="/store" element={<Store />} />
             <Route exact path="/home" element={<Home />} />
             <Route exact path="/cart" element={<Cart />} />
+            <Route exact path="/Pagamento" element={<Pagamento/>}/>
           </Routes>
         </Router>
       </div>
